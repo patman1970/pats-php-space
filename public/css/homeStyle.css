@@ -1,0 +1,746 @@
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/**************************************/
+/**** SET UP TITLE-BAR SECTION ********/
+/**************************************/
+/* idTitleBar   ORGANIZATION OF DIVS:
+    [--- .titleBarLeft ----]   [-- .titleBarRight --]
+    [.titleLogoImg]          [nav:] On Campus | Online
+    [h1 .titleDarker]    //     for companies | Sign in
+    [h1 .titleLighter]  OR idCampus-idOnline-idSignIn
+*/
+#idTitleBar {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 3.5rem;
+  width: 100%;  /* take the whole screen */
+  position: fixed; /* stay on top */
+  z-index: 2;
+  top: 0; /* some browsers have space on top */
+  background-color: white;
+}
+.titleCenter {
+  text-align: center;
+  margin: 0.5rem 2rem;
+  padding: 0;
+}
+.titleBarLeft {
+  /* these are INSIDE #idTitleBar
+     and contain the titleLogoImg
+     and titleDarker/titleLigher */
+  display: inline-flex;
+  justify-content: flex-start;
+  vertical-align: middle;
+  align-items: center;
+  height: 100%;
+  margin-left: 1.0rem; /* 1.0 + 0.5 (Img) = 1.5rem */
+  /* this border for debug only
+  border: solid 1px red; */
+}
+.titleLogoImg {
+  /* organize this image to be a certain
+     heigh/width with padding on left */
+  padding: 0 0.5rem;
+  height: 80%;
+  /* this border for debug only
+  border: solid 1px black; */
+}
+.titleDarker h1,h2,h3, .titleLighter h1,h2,h3 {
+  /* Size the Title: COLMAR ACADEMY - at the top */
+  text-transform: uppercase;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
+.titleDarker {
+  font-weight: 600;
+  color: #333333; /* darker grey */
+}
+.titleLighter {
+  font-weight: 500;
+  color: #666666; /* lighter grey */
+}
+/* end .titleBarLeft sub-items */
+
+.titleBarRight {
+  /* these are INSIDE #idTitleBar */
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  vertical-align: middle;
+  align-items: center;
+  height: 100%;
+  margin-right: 1.0rem; /* 0.5 + 1.0 rem = 1.5 */
+}
+.titleBarRight .titleNavButton {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+.titleBarRight .titleNavButton:hover {
+  background-color: lightGreen;
+  border: solid 1px yellow;
+  cursor: pointer;
+}
+.titleBarRight .titleNavButton {
+  padding: 0.5rem 0.5rem; /* 16px (8x2) between each */
+  height: 100%;
+  /* for each nav-transition (change
+     in background) for a #mottoButton object,
+     delay by 250 millisecs and "ease-out":
+     fast start, slow end: */
+  transition: background-color 200ms ease-out,
+              border 200ms ease-out;
+}
+.titleBarRight nav a {
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #666666;
+}
+
+@media only screen and (max-width: 720px) {
+  /* FOR SMALLER SCREENS (TABLETS),
+     REPLACE TOP WITH IMAGES, but keep
+     the COLMAR ACADEMY header title */
+  .titleBarRight {
+    /* replace titleBarRight w/idXXX images */
+    display: none;  /* hide */
+  }
+  .titleDarker, .titleLighter {
+    display: block; /* show */
+    height: 80%;
+  }
+  #idSignIn {
+    /* This is used to replace the closing
+       titleBarRight margin for smaller screens */
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* FOR TINY PHONE SCREENS,
+     REPLACE TOP WITH IMAGES */
+  .titleBarRight, .titleDarker, .titleLighter {
+    /* replace titleBarRight w/idXXX images
+       and remove COLMAR ACADEMY h1/h2 title */
+    display: none;  /* hide */
+  }
+  #idSignIn {
+    /* This is used to replace the closing
+       titleBarRight margin for smaller screens */
+    margin-right: 1rem;
+  }
+}
+/**************************************/
+/**** END SET UP TITLE-BAR SECTION ****/
+/**************************************/
+
+.someSpace {
+  background-color: #dddddd;
+  height:5rem;
+  margin: 0;
+}
+
+/* NOTE: .halfScreenXX is shared by sections:
+    idIntroSection and FeaturesSection
+*/
+.halfScreenLeft {
+  width: 30%;
+  overflow-x: hidden;
+  display: flex;
+  text-align: left;
+  vertical-align: middle;
+  /* this border for debug only:
+  border: solid 1px green; */
+}
+.halfScreenLeft img {
+  /* max-width: 95%; -- take up most of the container */
+  max-height: 311px;
+  margin: 1rem auto;
+}
+.halfScreenRight {
+  margin: 0 0.25rem;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  /* vertical-align: middle; */
+  text-align: center;
+  justify-content: center;
+  /* this border for debug only:
+  border: solid 1px black; */
+}
+.toLeft {
+  margin: 0 0;
+  width: 100%;
+  display:block;
+  text-align: left;
+  align-items: left;
+  align-content: left;
+  justify-content: none;
+  /* this border for debug only:
+   border: solid 1px black;  */
+}
+.halfScreenRight .footnote {
+  font-size: smaller;
+  font-style: italic;
+  text-align: left;
+}
+.halfScreenSubtitle {
+  /* This put here to match image above */
+  margin: 1rem 1.5rem; /* top: 16px, r/l: 24ps */
+  color: #444444;
+}
+.halfScreenRight h1,h2,h3 {
+  text-transform: none;
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0.5rem 0; /* top/bottom margin only */
+}
+.halfScreenRight h4 {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+.halfScreenRight p {
+  text-align: justify;
+  margin: 0.5rem 1rem;
+}
+
+.feature-box-image {
+  /* background: url(jQueryExamples/feature-sprites.png)
+     -278px 0 no-repeat; */
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+    align-items: baseline;
+}
+.halfScreenSubtitle {
+  text-align: right;
+}
+
+/**************************************/
+/******* START "INTRO" SECTION ********/
+/**************************************/
+/* idIntroSection   ORGANIZATION OF DIVS:
+    [.halfScreenLeft]   [.halfScreenRight]
+    <img only> 60%       <h2></h2>, <p></p>
+                         then .mottoButton
+*/
+#idIntroSection {
+  margin-top: 2.5rem; /* must start under title bar */
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: skyblue; /* #CCCCCC = lightGrey */
+  color: #444444;
+  align-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+#introAccordion {
+  text-align: center;
+  width: 99%;
+  max-width: 40rem;
+}
+#introAccordion h3, #introAccordion h3, #introAccordion h4 {
+  border: solid 1px green;
+  color: #aaaaaa; /* darker grey when gets closer to #0000 */
+  background-color: blue;
+  margin: 0 1rem; padding: 0.5rem;
+  border-radius: 6px;
+  font-weight: 300;
+}
+#introAccordion .introDiv {
+  background-color: #eeeeee;
+  margin: 0;
+  width: 90%;
+  margin: 0 1.5rem; padding: 0.5rem 0.5rem;
+  justify-content: center;
+}
+#introAccordion .introActive {
+  color: white;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 720px) {
+  /* FOR SMALLER SCREENS (TABLETS) --
+    close the image on the left since
+    there is no space or need for it: */
+  #idIntroSection {
+    flex-wrap: wrap;  /* still showing image, so wrap on smaller */
+    background-color: skyblue;
+  }
+  #idIntroSection .halfScreenLeft {
+    /* keep here: display: none;  -- hide the left if needed */
+    width: 95%;
+  }
+  #idIntroSection .halfScreenLeft img {
+    width: 50%;
+    overflow-y: hidden;
+  }
+  #idIntroSection .halfScreenRight {
+    max-width: 100%; /* override lower 20rem */
+    width: 90%;
+    margin: 1rem;
+    background-color: #DDDDDD;
+    padding-bottom: 2rem;
+    border: solid 1px blue;
+  }
+  #idIntroSection #mottoButton {
+    /* "lighter" grey background box
+       that says "Start here" */
+    background-color: #777777;
+  }
+  .mottoButtonImg, .titleDarker, .titleLighter {
+    display: block; /* show */
+    height: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .FeaturesSection .halfScreenLeft,
+  .halfScreenSubtitle {
+    display: none; /* hide text */
+  }
+  .someSpace {
+    background-color: transparent;
+  }
+}
+
+/**************************************/
+/********* END "INTRO" SECTION ********/
+/**************************************/
+
+
+/**************************************/
+/***** START INFORMATION SECTION ******/
+/**************************************/
+/* FeaturesSection   ORGANIZATION OF DIVS:
+  [--.halfScreenLeft--]   [--.halfScreenRight--]
+    <img only> 60%         <infoBox><..Left/..Right>
+    .halfScreenSubtitle    <infoBox><..Left/..Right>
+    <h2></h2>, <p></p>     <infoBox><..Left/..Right>
+    FeatureFootnote */
+#idFeaturesSectionJQuery  {
+  background-color: #cccccc;
+}
+.FeatureMobile {
+  display: none;  /* header of feature in mobile */
+}
+.FeaturesSection {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: white;
+  color: #444444;
+}
+.FeaturesSection .halfScreenRight {
+  /* override upper section of min-width */
+  min-width: 25rem;
+  vertical-align: top;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 0;
+}
+.FeaturesSection .FeatureFootnote {
+  /* make it stand out like a quote */
+  font-family: Calibri, Helvetica, serif;
+  font-size: smaller;
+}
+.infoBox:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+.infoBox {
+  display: inline-flex;
+  justify-content: center;
+  width: 97%;
+  border: solid 1px #eeeeee;
+  height: 8rem;  /* This is needded for IE for some reason */
+}
+.infoBoxLeft img {
+  max-height: 6rem;
+  width: auto;
+  overflow-y: hidden;
+}
+/* was: #imgInfoOrientation, #imgInfoOurCampus */
+.infoMobileImage {
+  width: 95%;
+  height: auto;
+  margin: 1rem 0;  /* about 16px */
+  text-align: center;
+  display: none; /* hide, hidden on right */
+}
+@media only screen and (max-width: 720px) {
+  /* FOR SMALLER SCREENS (TABLETS)  */
+  .halfScreenLeft {
+    display: flex;
+    flex-direction: column;
+    overflow-x: none;
+  }
+  .halfScreenSubtitle {
+    font-size: 0.8rem;
+    padding: 3.5rem 0.5rem 0.5rem 0.1rem;
+    text-align: left;
+  }
+  .halfScreenSubtitle h2, .halfScreenSubtitle h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .infoBox:hover {
+    /* default background-color: #eeeeee; */
+    background-color: #cccccc; /* darker */
+    cursor: pointer;
+  };
+  .infoBox {  /* default padding = 0.5rem */
+    padding-bottom: 1rem;
+    height: 3rem;  /* This is needded for IE for some reason */
+  }
+  .infoBoxRight h3, .infoBoxRight h4 {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+  .halfScreenRight, .infoBox {
+    /* default is this at < 720px at the top :
+    background-color: #DDDDDD; */
+    background-color: #eeeeee; /* lighter */
+  };
+}  /* END (max-width: 720px) */
+
+.infoBox .infoBoxLeft {
+  width: 35%; /* take up 1/3rd of container */
+  margin: 1rem;
+  /* this border for debug only:
+  border: solid 1px black; */
+}
+.infoBox .infoBoxLeft img {
+  width: 100%; /* img is inside infoBoxLeft */
+  height: auto;
+  padding: 0;
+}
+.infoBox .infoBoxRight {
+  margin: 0 1rem; /* no border top/bottom */
+  width: 70%;
+  text-align: left;
+  /* this border for debug only:
+  border: solid 1px red; */
+}
+.infoBox .infoBoxRight p {
+  font-size: 0.8rem;
+  padding: 0;
+}
+.infoBox .infoReadMore:hover {
+  font-weight: bold;
+  color: lightGreen;
+  cursor: pointer;
+}
+.infoBox .infoReadMore {
+  /* read more link (button) */
+  border: none;
+  color: #939afa; /* darker lightBlue */;
+  background-color: transparent;
+  text-align: center;
+  margin: 0.25rem 0 0.25rem;
+  padding: 0;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  /* FOR TINY PHONE SCREENS,
+     MAKE ICONS WIDER IN INFO SECTION: */
+  .FeatureMobile {
+    display: block;  /* header of feature in mobile */
+    text-align: center;
+    width: 60%;
+    background-color: grey;
+    text-decoration: underline;
+    border-radius: 6px;
+    margin: 0 auto;
+  }
+  .infoBox {  /* default padding = 0.5rem */
+    padding-bottom: 1rem;
+  }
+  .infoBox .infoBoxLeft {
+    /* hide left since new image is hidden on
+       the .infoBoxRight pane */
+    display: none;
+  }
+  .infoBox .infoBoxRight {
+    /* no border top/bottom, but right is IN */
+    margin: 0 2rem 0 1rem;
+    width: 100%;
+    /* this border for debug only:
+    border: solid 1px red;  */
+  }
+  .infoBox .infoBoxLeft img,
+  .infoBox .infoBoxRight img,
+  .infoMobileImage img {
+      width: auto;       /* switch width 100% to auto */
+      max-height: 4rem;  /* and height:auto to 100% on mobile */
+      text-align: center;
+      position: relative;
+      float: left;
+      padding: 0 0.5rem;
+  }
+  /* was: #imgInfoOrientation, #imgInfoOurCampus */
+  .infoMobileImage {
+    /* this inherits width/height/margin from main */
+    display: block; /* show */
+  }
+} /* end (max-width: 600px) */
+
+/**************************************/
+/****** END INFORMATION SECTION *******/
+/**************************************/
+
+
+/**************************************/
+/******* START Favorites SECTION *******/
+/**************************************/
+/* idFavoritesSection   ORGANIZATION OF DIVS:
+         <h2>Start Favorites</h2>
+  [--------- .fullScreenTileRows ---------]
+  .learnBox       .learnBox      .learnBox
+  <..Top/Bottom>  <..Top/Bottom> <..Top/Bottom>
+
+  .learnBox       .learnBox      .learnBox
+  <..Top/Bottom>  <..Top/Bottom> <..Top/Bottom>
+
+  ..etc., where .learnBox is structed as:
+  =======================================
+     .learnBox
+       .learnBoxTop <img><h4>.. COURSES
+       .learnBoxBottom <p>..</p>
+*/
+#idFavoritesSection, #idMyToolsSection {
+  padding: 2rem 1rem; /* 16px on the side */
+  text-align: center;
+  color: #666666;
+  background-color: #dddddd;
+}
+#idMyToolsSection {
+  background-color: lightGreen;
+}
+#idFavoritesSection h1,h2,h3 {
+  color: #333333;
+  padding: 0;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.fullScreenTileRows {
+  display: inline-flex;
+  width: 100%; /* this is needed for IE bug */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.learnBox {
+  width: 30%;
+  height: 11rem;
+  min-width: 14rem;
+  max-width: 20rem;
+  text-align: left;
+  background-color: white;
+  margin: 0.5rem;
+  display: inline;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  border: double 1px brown;
+  border-radius: 10px;
+}
+.learnBox:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+#idMyToolsSection .learnBox:hover {
+  background-color: green;
+  color: lightGreen;
+}
+.learnBox h2,h3,h4 {
+  color: #333333;
+  font-size: 1.1rem;
+  /* 16px on top or left */
+  margin: 1rem 0.5rem 0.5rem 1rem;
+  padding: 0;
+}
+.learnBox p {
+  color: #333333;
+  font-size: 0.9rem;
+  /* 16px on left or bottom, the rest 8px */
+  margin: 0.5rem 0.5rem 1rem 1rem;
+  margin-top: 0.5rem;
+}
+.learnBoxTop {
+  max-height: 3rem;
+  justify-content: flex-end;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.learnBoxTop img {
+  width: 90%;
+  height: auto;
+  max-height: 2.5rem;
+  overflow-y: auto;
+  vertical-align: bottom;
+}
+.learnBoxMiddle {
+  flex-grow: 3;  /* takes 3x as must as others */
+  min-height: 50%;
+  /* this border for debug only
+  border: solid 1px red; */
+}
+.learnBoxBotURL {
+  max-height: 2rem;
+  vertical-align: bottom;
+  text-align: center;
+  color: #333333;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 720px) {
+  /* FOR SMALLER SCREENS (TABLETS)  */
+  .learnBox { /* this is in section below */
+    min-height: 15rem;
+  }
+}  /* END (max-width: 720px) */
+
+@media only screen and (max-width: 600px) {
+  /* FOR TINY PHONE SCREENS,
+     REMOVE IMAGES IN LEARN SECTION: */
+  #idFavoritesSection {
+    background-color: #ffffff; /* lighter */
+  }
+  .fullScreenTileRows {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+  .infoBox {
+    border: double 1px brown;
+    border-radius: 10px;
+    margin: 0.25rem;
+  }
+  .learnBox {
+    background-color: #cccccc; /* darker */
+    width: 90%;
+    height: 7rem;  /* was 11, since getting rid of paragraphs.. */
+    min-width: inherit;
+    min-height: inherit;
+    margin: 0.25rem;  /* go from 16px default */
+  }
+  .learnBox p, .learnBox img {
+    display: none; /* hide all minor text
+      and pictures for small screens */
+  }
+  .learnBox h2,h3,h4 {
+    /* 16px on all sides */
+    margin: 1rem;
+  }
+  #idFavoritesSection .titleDarker {
+    display: block;
+  }
+}
+/**************************************/
+/******** END Favorites SECTION ********/
+/**************************************/
+
+
+/**************************************/
+/******** START THESIS SECTION ********/
+/**************************************/
+#idThesisSection {
+  padding: 0 1rem; /* 16px on the side */
+  text-align: center;
+  color: #666666;
+  background-color: white;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+#vidThesis {  /* video inside halfScreenLeft */
+  width: 100%;
+  height: auto;
+}
+#idThesisSection .infoBox {
+  min-height: 10.5rem;
+  width: auto;
+}
+
+@media only screen and (max-width: 720px) {
+  /* FOR SMALLER SCREENS (TABLETS) --
+    keep only the video on the left since
+    there is no space for the rest: */
+  #idThesisSection .halfScreenLeft {
+    /* This is in section below, hide
+       it and make way for video only */
+    display: block;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+  }
+  #idThesisSection .halfScreenRight,
+  #idThesisSection .halfScreenSubtitle {
+      display: none; /* hide all text */
+  }
+}  /* end (max-width: 720px) */
+
+@media only screen and (max-width: 600px) {
+  /* FOR TINY PHONE SCREENS,
+     REPLACE TOP WITH IMAGES */
+  #idThesisSectionTOP .titleCenter,
+  #idThesisSectionTOP .titleDarker {
+    display: block; /* override prev setting */
+  }
+}  /* end (max-width: 600px) */
+
+/**************************************/
+/********  END THESIS SECTION  ********/
+/**************************************/
+
+
+/**************************************/
+/******** START FOOTER SECTION ********/
+/**************************************/
+/* NOTE: On a small screen, the right will
+  disappear with Terms/Privacy from the
+  default settings set above for 600px
+*/
+#idFooterBar {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 4rem;
+  width: 90%;  /* take most of the screen */
+  text-align: left;
+  background-color: white;
+  vertical-align: top;
+  font-size: 0.7rem;
+  margin: 0.5rem 1.5rem;  /* 24px left/right */
+}
+#idFooterBar .titleBarRight {
+  margin-right: 1rem;
+}
+#idFooterBar ul li {
+  display: inline;  /* this should remove bullets */
+  padding: 0 0.5rem;
+}
+#idFooterBar ul a {
+  text-decoration: none;
+  color: #333333;
+}
+/**************************************/
+/********  END FOOTER SECTION  ********/
+/**************************************/
