@@ -5,11 +5,13 @@
 # *
 # **** It will re-download all /vendor modules for your project.
 # *
+vendor/
 /vendor/*
 */vendor/*
 *.tmp
 *.log
 *.swp
+.env
 
 #This ignores temp-files used in MongoDB database instance:
 */MongoDB/diagnostic.data
