@@ -18,7 +18,7 @@
     echo "<hr /><pre>";
     //var_dump($v);
     echo "</pre><hr />";
-   ?>
+  ?>
 
   <?php include('../views/footer.php'); ?>
   <script type="text/javascript" src="js/index.js"></script>

@@ -1,3 +1,3 @@
 <?php
   require '../vendor/autoload.php';
-  require '/validation.php';
+  require 'validation.php';
