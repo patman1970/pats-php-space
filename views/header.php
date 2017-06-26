@@ -50,3 +50,18 @@
   <input type=hidden id=idError2 value=""/>
   <input type=hidden id=idError3 value=""/>
 </header><!-- end idTitleBar section -->
+
+<div id="idIntroSection">
+  <div class="halfScreenLeft">
+    <br />
+    <h4 style="margin: 0 0.5 0.5rem 1rem"><?php echo $topMessage; ?></h4>
+    <br />
+  </div>
+  <div class="halfScreenRight toLeft">
+
+    <span style='margin: 0 0 0 0.5rem; <%= dbMessageStyle %>'>
+       <?php echo $sideTopMessage ?>
+    </span>
+
+  </div>
+</div><!-- end divIntroSection -->

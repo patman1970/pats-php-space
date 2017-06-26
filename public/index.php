@@ -11,15 +11,7 @@
   <body>
   <?php include('../views/header.php'); ?>
   <?php include('../views/content.php'); ?>
-  <?php
-
-    //echo "<h1>Calling \$v = new Validator</h1>";
-    //$v = new Validator;
-    echo "<hr /><pre>";
-    //var_dump($v);
-    echo "</pre><hr />";
-  ?>
-
+  <?php OutputValidatorObject() ?>
   <?php include('../views/footer.php'); ?>
   <script type="text/javascript" src="js/index.js"></script>
   </body>
