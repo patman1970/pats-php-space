@@ -1,0 +1,19 @@
+#This ignores files listed in the following dir's & file-types.
+# * To re-download libs, note that the package.json already has
+# * these listed, and you can run command:
+# *       composer update
+# *
+# **** It will re-download all /vendor modules for your project.
+# *
+/vendor/*
+*/vendor/*
+*.tmp
+*.log
+*.swp
+
+#This ignores temp-files used in MongoDB database instance:
+*/MongoDB/diagnostic.data
+*/MongoDB/diagnostic.data/*
+*/MongoDB/mongod.*
+# may need this one: */MongoDB/WiredTiger*
+*/MongoDB/journal/*Log*
