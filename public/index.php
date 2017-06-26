@@ -10,7 +10,7 @@
   </head>
   <body>
   <?php include('../views/header.php'); ?>
-  <?php include('../views/content.php'); ?>
+  <?php include('../views/contentMain.php'); ?>
   <?php OutputValidatorObject() ?>
   <?php include('../views/footer.php'); ?>
   <script type="text/javascript" src="js/index.js"></script>
